@@ -8,5 +8,5 @@
 	include_once("files/edit.php");
 	
 	if(isset($_POST['submit']))
-		edit($id, mysql_real_escape_string($_POST['name']), mysql_real_escape_string($_POST['surname']));
+		edit($id, $_POST['name'], $_POST['surname']);
 ?>
