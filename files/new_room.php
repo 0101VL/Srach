@@ -1,6 +1,5 @@
 <?php
 	require_once("../base.php");
-	require_once("hash.php");
 	
 	if(isset($_POST['submit'])) {
 		$err = array();
