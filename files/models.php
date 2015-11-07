@@ -1,5 +1,6 @@
 <?php
 	require_once("/../base.php");
+	require_once("/../header.php");
 	
 	function generateCode($length) { //Генерация хэша
 		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789';
@@ -68,5 +69,31 @@
 	{
 		setcookie('id', '', time() - 60*60*24*14, '/');
 		setcookie('hash', '', time() - 60*60*24*14, '/');
+	}
+	
+	function login($email, $password)
+	{
+		$email = mysql_real_escape_string($email); // Получаем E-mail
+		
+		$password = mysql_real_escape_string($password); // Получаем Password
+		
+		$data = mysql_fetch_assoc(mysql_query("SELECT `password`, `id` FROM `users` WHERE `email` = '".$email."' LIMIT 1"));
+
+		if($data['password'] === md5(md5($password))) {
+			$hash = md5(generateCode(10));
+
+			mysql_query("UPDATE `users` SET `hash` = '".$hash."' WHERE `email` = '".$email."'");
+
+			setcookie('id', $data['id'], time() + 60*60*24*14, '/');
+			setcookie('hash', $hash, time() + 60*60*24*14, '/');
+		}
+	}
+	
+	function profile($id)
+	{
+		$id = mysql_real_escape_string($id);
+		
+		$info_user = mysql_fetch_assoc(mysql_query("SELECT `name`, `surname`, `raiting`, `avatar` FROM `users` WHERE `id` = '".$id."'"));
+	
 	}
 ?>
