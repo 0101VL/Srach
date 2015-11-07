@@ -1,15 +1,8 @@
-<!doctype html>
-<html>
-	<head>
-		<title>Регистрация</title>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<form method="post" action="files/registration.php">
-			E-mail: <input type="text" name="email"><br>
-			Пароль: <input type="password" name="password"><br>
-			Подтверждение пароля: <input type="password" name="password_confirm"><br>
-			<input type="submit" name="submit" value="Отправить"><br>
-		</form>
-	</body>
-</html>
+<?php
+	include("files/models.php");
+	
+	
+	include_once("files/registration.php");
+	if(isset($_POST['submit']))
+		registration($_POST['email'], $_POST['password'], $_POST['password_confirm']);
+?>

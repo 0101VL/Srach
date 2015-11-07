@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<form method="post" action="files/registration.php">
+		<form method="post" action="files/new_room.php">
 			Название комнаты: <input type="text" name="title"><br>
 			<input type="checkbox" id="checkbox" name="add_guest">Добавить пользователя
 			<span id="new_guest">E-mail пользователя: <input type="text" name="email_guest"></span><br>
