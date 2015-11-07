@@ -7,8 +7,8 @@
 	<body>
 		<form method="post">
 			<!--Пароль: <input type="password" name="password"><br> //-->
-			Имя: <input type="text" name="name" value="<?=$info['name'];?>"><br>
-			Фамилия: <input type="text" name="surname"><br>
+			Имя: <input type="text" name="name"<?php echo ($info['name'] != NULL) ? 'value="'.$info['name'].'"' : '';?>><br>
+			Фамилия: <input type="text" name="surname"<?php echo ($info['surname'] != NULL) ? 'value="'.$info['surname'].'"' : '';?>><br>
 			<input type="submit" name="submit" value="Изменить"><br>
 		</form>
 	</body>
