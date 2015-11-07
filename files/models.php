@@ -45,12 +45,16 @@
 	{
 		$err = array();
 			
-		if(!preg_match('/^[А-яёЁ\-]{1,50}$/', $name)) {
-			$err[] = 'Имя не подходит по условию';
+		if($name != "") {
+			if(!preg_match('/^[А-яёЁ\-]{1,50}$/', $name)) {
+				$err[] = 'Имя не подходит по условию';
+			}
 		}
 		
-		if(!preg_match('/^[А-яёЁ\-]{1,50}$/', $surname)) {
-			$err[] = 'Фамилия не подходит по условию';
+		if($surname != "") {
+			if(!preg_match('/^[А-яёЁ\-]{1,50}$/', $surname)) {
+				$err[] = 'Фамилия не подходит по условию';
+			}
 		}
 		
 		if(count($err) == 0) {
@@ -93,7 +97,8 @@
 	{
 		$id = mysql_real_escape_string($id);
 		
-		$info_user = mysql_fetch_assoc(mysql_query("SELECT `name`, `surname`, `raiting`, `avatar` FROM `users` WHERE `id` = '".$id."'"));
-	
+		$query_profile = mysql_query("SELECT `name`, `surname`, `raiting`, `avatar` FROM `users` WHERE `id` = '".$id."'");
+		$profile = mysql_fetch_assoc($query_profile);
+		return $profile;
 	}
 ?>
