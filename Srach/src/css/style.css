@@ -1,0 +1,243 @@
+@import url('normalizecss/normalize.css');
+@import url('fonts/fonts.css');
+
+html, body {
+	width: 100%;
+	height: 100%;
+	
+	background-color: #f1f1f1;
+	font-family: "PTSansRegular";
+	font-size: 16px;
+}
+
+.wrapper {
+	width: 940px;
+	margin: 0 auto;
+}
+
+header {
+	height: 125px;
+	
+	background-color: #fff;
+}
+
+.profile {
+	margin-top: 54px;
+	float: right;
+}
+
+.profile a {
+	font-family: "PTSansBold";
+	
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.about_service {
+	height: 500px;
+	
+	background: linear-gradient(to right, #1e88e5, #e33a36);
+	color: #fff;
+	text-align: center;
+}
+
+.about_service .wrapper {
+	height: 500px;
+	
+	background: url(../img/holy.png);
+}
+
+.about_service .text {
+	padding-top: 175px;
+}
+
+.about_service h1 {
+	width: 780px;
+	margin: 0 auto;
+	
+	font-family: "PTSansBold";
+	font-size: 48px;
+}
+
+.about_service p {
+	width: 780px;
+	margin: 10px auto 0 auto;
+	
+	line-height: 1.5;
+}
+
+.how_to_do {
+	background-color: #f1f1f1;
+}
+
+.how_to_do .wrapper {
+	padding: 75px 0 75px;
+	clear: both;
+	display: table;
+}
+
+.how_to_do .step {
+	width: 220px;
+	margin-right: 20px;
+	float: left;
+	
+	text-align: center;
+}
+
+.how_to_do .step:nth-last-child(1) {
+	margin-right: 0;
+}
+
+.how_to_do .step img {
+	height: 48px;
+}
+
+.how_to_do .step p {
+	text-align: center;
+}
+
+.holiwar {
+	background-color: #fff;
+}
+
+.holiwar .wrapper {
+	padding: 75px 0 75px;
+}
+
+.holiwar h2 {
+	width: 780px;
+	margin: 0 auto 50px;
+	
+	font-family: "PTSansBold";
+	font-size: 36px;
+	text-align: center;
+}
+
+.holiwar p {
+	font-size: 24px;
+}
+
+.holiwar .holiwar_block {
+	margin: 0 auto;
+		
+	text-align: center;
+}
+
+.holiwar .players_block {
+	width: 450px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.holiwar .holiwar_block .versus {
+	position: absolute;
+	top: 65px;
+	left: 215px;
+	font-family: "PTSansBold";
+}
+
+.holiwar .holiwar_block .players_block .avatar {
+	width: 150px;
+	height: 150px;
+	margin: 0 25px;
+	background-color: #aeaeae;
+	border-radius: 100px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.holiwar .holy_info p{
+	display: inline-block;
+	font-size: 16px;
+	color: #aeaeae;
+	margin: 0 0 50px;
+}
+
+.holiwar .holy_info p:nth-last-child(1) {
+	margin-left: 35px;
+}
+	
+.holiwar .holy_info .viewers {
+	background: url(../img/views.png);
+	display: inline-block;
+	width: 16px;
+	height: 12px;
+	margin-right: 5px;
+}
+
+.holiwar .holy_info .time {
+	background: url(../img/time.png);
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin-right: 5px;
+}
+
+.holiwar .holy_info .view_button {
+	border: 2px solid #5cba47;
+	border-radius: 25px;
+	padding: 15px 20px;
+	text-decoration: none;
+	font-family: "PTSansBold";
+	color: #5cba47;
+	transition: all 0.2s ease-in-out;
+}
+
+.holiwar .holy_info .view_button:hover {
+	background-color: #5cba47;
+	color: #fff;
+}
+
+footer {
+	background-color: #f0f0f0;
+	padding: 35px 0;
+}
+
+footer .right {
+	float: left;
+}
+
+footer .authors {
+	margin-top: -15px;
+	float: right;
+}
+
+/**СТРАНИЦА ХОЛИВАРА **/
+.holiwar_page_header {
+	height: 125px;
+	color: #fff;
+}
+
+.holiwar_page_header  .profile {
+	margin-top: 54px;
+	float: right;
+}
+
+.holiwar_page_header  .profile a {
+	font-family: "PTSansBold";
+	
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.holywar_body  .holywar_name {
+	text-align: center;
+}
+
+.holywar_body  .holywar_name b {
+	color: #aeaeae;
+	font-family: "PTSansBold";
+	
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.holywar_body  .holywar_name h1 {
+	font-family: "PTSansRegular";
+	color: #fff;
+	font-style: normal;
+}
+
+.holywar_page_bg {
+	background: linear-gradient(to right, #1e88e5, #e33a36);
+}

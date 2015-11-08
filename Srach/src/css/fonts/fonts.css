@@ -1,0 +1,29 @@
+@font-face {
+	font-family: 'OswaldRegular';
+	src: url('../../fonts/oswald.regular.eot');
+	src: url('../../fonts/oswald.regular.eot?#iefix') format('embedded-opentype'),
+   	  url('../../fonts/oswald.regular.woff') format('woff'),
+   	  url('../../fonts/oswald.regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+     font-family: 'PTSansRegular';
+    src: url('../../fonts/pt_sans_regular.eot');
+    src: url('../../fonts/pt_sans_regular.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/pt_sans_regular.woff') format('woff'),
+         url('../../fonts/pt_sans_regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PTSansBold';
+    src: url('../../fonts/pt_sans_bold.eot');
+    src: url('../../fonts/pt_sans_bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/pt_sans_bold.woff') format('woff'),
+         url('../../fonts/pt_sans_bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
