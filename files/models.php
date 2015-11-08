@@ -113,17 +113,25 @@
 	/* НОВАЯ КОМНАТА */
 	function new_room($title, $add_guest, $email_guest, $date, $time)
 	{
+		$rooms_isset_of_user = mysql_fetch_assoc(mysql_query("SELECT COUNT(`id`) as count FROM `rooms` WHERE (`first_p` = ".mysql_real_escape_string($_COOKIE['id'])." OR `second_p` = ".mysql_real_escape_string($_COOKIE['id']).") AND `active` = 1"));
+		
 		$err = array();
 		
-		$date = explode(".", $date);
-		$date = $date[2].'-'.$date[1].'-'.$date[0];
+		if($rooms_isset_of_user['count'] > 0) {
+			$err[] = 'Вы уже участвуете в какой-либо комнате. Завершите участие в комнате, чтобы начать новый раунд';
+		}
+		if(mb_strlen($title, 'utf-8') < 3) {
+			$err[] = 'Название не подходит по условию';
+		}
 		
-		$time = $time.":00";
+		if(!preg_match("/^([0-9]{1,2}).([0-9]{1,2}).([0-9]{4})$/", $date)) {
+			$err[] = 'Дата указана неверно';
+		}
 		
-		$datetime = $date . ' ' . $time;
-		
-		var_dump($datetime);
-		
+		if(!preg_match("/^([0-9]{2}):([0-9]{2})$/", $time)) {
+			$err[] = 'Время указано неверно';
+		}
+		$second_id = 0;
 		if($add_guest == 1) {
 			$second_user = mysql_fetch_assoc(mysql_query("SELECT `id` FROM `users` WHERE `email` = '".$email_guest."'"));
 			
@@ -131,14 +139,26 @@
 				if(!preg_match("/^([A-z0-9_\.-]{2,64}+)@([A-z0-9_\.-]+){1,8}\.([A-z\.]{1,15})$/", $email_guest)) {
 					$err[] = 'Email пользователя не подходит по условию';
 				}
-				$email_guest = $second_user['id'];
+				$second_id = $second_user['id'];
 			}
-			else
-				$email_guest = 0;
 		}
 		if(count($err) == 0) {
+		
+			$date = explode(".", $date);
+			if($date[0] < 10) 
+				$date[0] = '0' . $date[0];
+			
+			if	($date[1] < 10)
+				$date[1] = '0' . $date[1];
+				
+			$date = $date[2].'-'.$date[1].'-'.$date[0];
+			
+			$time = $time.":00";
+			
+			$datetime = $date . ' ' . $time;
+			
 			$hash = md5(generateCode(10));
-			mysql_query("INSERT INTO `rooms` SET `title` = '".mysql_real_escape_string($title)."', `first_p` = '".mysql_real_escape_string($_COOKIE['id'])."', `second_p` =  '".$email_guest."', `time_start` = '".$datetime."'") or die(mysql_error());
+			mysql_query("INSERT INTO `rooms` SET `title` = '".mysql_real_escape_string($title)."', `first_p` = '".mysql_real_escape_string($_COOKIE['id'])."', `second_p` =  '".$second_id."', `time_start` = '".$datetime."', `active` = 1") or die(mysql_error());
 			header('Location: /');
 		}
 		else {

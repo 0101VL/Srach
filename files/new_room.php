@@ -7,8 +7,8 @@
 	<body>
 		<form method="post">
 			Название комнаты: <input type="text" name="title"><br>
-			Дата: <input placeholder="23.02.2015" type="text" name="date"><br>
-			Время: <input placeholder="12:46" type="text" name="time"><br>
+			Дата: <input placeholder="07.02.2015" type="text" name="date"><br>
+			Время: <input placeholder="09:46" type="text" name="time"><br>
 			<input type="checkbox" id="checkbox" name="add_guest">Добавить пользователя
 			<span id="new_guest">E-mail пользователя: <input placeholder="user@mail.ru" type="text" name="email_guest"></span><br>
 			<input type="submit" name="submit" value="Создать комнату"><br>
